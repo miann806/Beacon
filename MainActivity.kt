@@ -27,7 +27,9 @@ class MainActivity : AppCompatActivity() {
     private val bluetoothdeviceslist = ArrayList<String>()
     private var ID_target = "BR517487"
     internal var dis: Double = 0.toDouble()
-
+    companion object {
+        private val PERMISSION_REQUEST_COARSE_LOCATION = 1
+    }
     private val myreceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             val action = intent.action
@@ -99,9 +101,5 @@ class MainActivity : AppCompatActivity() {
         registerReceiver(myreceiver, filter)
         filter = IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)
         registerReceiver(myreceiver, filter)
-    }
-
-    companion object {
-        private val PERMISSION_REQUEST_COARSE_LOCATION = 1
     }
 }

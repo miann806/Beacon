@@ -25,11 +25,10 @@ class MainActivity : AppCompatActivity() {
     private var TV1: TextView? = null
     private var mBluetoothAdapter: BluetoothAdapter? = null
     private val bluetoothdeviceslist = ArrayList<String>()
-
+    private var ID_target = "BR517487"
     internal var dis: Double = 0.toDouble()
 
     private val myreceiver = object : BroadcastReceiver() {
-
         override fun onReceive(context: Context, intent: Intent) {
             val action = intent.action
             if (BluetoothDevice.ACTION_FOUND == action) {
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 try {
 
-                    TV1!!.text = device!!.name.toString() + " " + java.lang.Double.toString(dis)
+                    TV1!!.text = device!!.name.toString() + "" + java.lang.Double.toString(dis)
 
                 } catch (e: Exception) {
 
